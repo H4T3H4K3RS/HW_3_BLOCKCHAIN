@@ -6,7 +6,6 @@ const web3 = new Web3 (INFURA_API);
 const smartContract = new web3.eth.Contract (abi, CONTRACT_ADDRESS);
 
 const account = web3.eth.accounts.privateKeyToAccount (PRIVATE_KEY);
-const blockNumber = await web3.eth.getBlockNumber ();
 async function addDataToContract (key, number, text, flag) {
   const nonce = await web3.eth.getTransactionCount (account.address);
 
@@ -58,7 +57,7 @@ function getEvents (filter) {
 }
 
 async function viewStorageSlots (slot) {
-  const storage = await web3.eth.getStorageAt (CONTRACT_ADDRESS, slot, blockNumber);
+  const storage = await web3.eth.getStorageAt (CONTRACT_ADDRESS, slot);
   console.log (`Storage at slot ${slot} :`, storage);
 }
 
@@ -70,3 +69,12 @@ console.log ('Events:', events);
 await viewStorageSlots (0);
 await viewStorageSlots (1);
 await viewStorageSlots (2);
+await viewStorageSlots (3);
+await viewStorageSlots (4);
+await viewStorageSlots (5);
+await viewStorageSlots (6);
+await viewStorageSlots (7);
+await viewStorageSlots (8);
+await viewStorageSlots (9);
+await viewStorageSlots (10);
+await viewStorageSlots (11);
